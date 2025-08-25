@@ -211,5 +211,84 @@ func removeDuplicates(nums []int) int {
     return i+1
 }
 
+//7.合并区间
+// 方法1：单循环比较 边遍历边合并
+func merge(intervals [][]int) [][]int {
+    if len(intervals) ==0 {
+        return intervals
+    }
+    // 区间排序
+    sort.Slice(intervals,func(i,j int)bool {
+        return intervals[i][0]<intervals[j][0]
+    })
+    result := [][]int{intervals[0]}
+    for i :=1;i<len(intervals);i++ {
+        last :=result[len(result)-1]
+        start :=intervals[i]
 
+            if start[0]<=last[1] {
+                if start[1]>last[1]{
+                    last[1]=start[1]
+                }
+            } else {
+                result = append(result,start)
+            }
+    }
+    return result
+}
+
+// 方法2：双循环比较
+func merge(intervals [][]int) [][]int {
+    if len(intervals) ==0 {
+        return intervals
+    }
+    // 区间排序
+    sort.Slice(intervals,func(i,j int)bool {
+        return intervals[i][0]<intervals[j][0]
+    })
+    var result [][]int
+    i := 0
+
+    for i < len(intervals) {
+        left := intervals[i][0]
+        right :=intervals[i][1]
+
+        j:= i+1
+        for j <len(intervals) && intervals[j][0] <= right {
+            if intervals[j][1] > right {
+                right = intervals[j][1]
+            }
+            j++
+        }
+        result = append(result,[]int{left,right})
+        i = j
+    }
+    return result
+}
+
+// 8.两数之和
+//方法1：嵌套循环
+func twoSum(nums []int, target int) []int {
+    for i:=0;i<len(nums);i++ {
+        for j := i+1;j<len(nums);j++ {
+            if nums[i] + nums [j] ==target{
+                return []int{i,j}
+            }
+        }
+    }
+    return []int{}
+}
+//方法2：map
+func twoSum(nums []int, target int) []int {
+    numMap:=make(map[int]int)
+
+    for i,num :=range nums {
+        s :=target-num
+        if index,exists := numMap[s]; exists {
+            return []int{index,i}
+        }
+        numMap[num] = i
+    }
+    return nil
+}
 
