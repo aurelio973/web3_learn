@@ -1,10 +1,10 @@
 package main
 
-// import "fmt"
+import "fmt"
 
 // 1.只出现一次的数字
 // 方法1：for循环结合if和map
-func singleNumber(nums []int) int {
+func singleNumber1(nums []int) int {
     count:=make(map[int]int)
     for _,j := range(nums){
         count[j]++
@@ -18,7 +18,7 @@ func singleNumber(nums []int) int {
 }
 
 // 方法2：for循环结合异或运算
-func singleNumber(nums []int) int {
+func singleNumber2(nums []int) int {
     result:=0
     for _,j :=range(nums){
         result^=j
@@ -27,7 +27,7 @@ func singleNumber(nums []int) int {
 }
 
 // 方法3：排序+分情况判断
-func singleNumber(nums []int) int {
+func singleNumber3(nums []int) int {
     sort.Ints(nums)
     // 只有一个元素时
     if len(nums)==1{
@@ -51,9 +51,17 @@ func singleNumber(nums []int) int {
     return 0
 }
 
+func main() {
+    nums:=[]int{}
+    fmt.Println("method1_test:",singleNumber1(nums))
+    fmt.Println("method2_test:",singleNumber2(nums))
+    fmt.Println("method3_test:",singleNumber3(nums))
+    
+}
+
 //2.回文数
 // 方法1：翻转判断
-func isPalindrome(x int) bool {
+func isPalindrome1(x int) bool {
     if x<0 ||(x!=0 && x%10==0){
         return false
     }
@@ -67,7 +75,7 @@ func isPalindrome(x int) bool {
 }
 
 // 方法2：转换成字符串判断
-func isPalindrome(x int) bool {
+func isPalindrome2(x int) bool {
     s:=fmt.Sprintf("%d",x)
     for i:=0;i<len(s)/2;i++{
         if s[i]!=s[len(s)-1-i]{
@@ -77,9 +85,15 @@ func isPalindrome(x int) bool {
     return true
 }
 
+func main() {
+    num :=
+    fmt.Println("method1_test:",isPalindrome1(num)
+    fmt.Println("method2_test:",isPalindrome2(num)
+}
+
 //3.有效的括号
 // 方法1：栈 switch判断
-func isValid(s string) bool {
+func isValid1(s string) bool {
     left:=[]rune{}
     right:=map[rune]rune{')':'(',']':'[','}':'{'} 
     for _,i :=range s {
@@ -97,7 +111,7 @@ func isValid(s string) bool {
 }
 
 // 方法2：栈 if/else判断
-func isValid(s string) bool {
+func isValid2(s string) bool {
     left:=[]rune{}
     for _,i :=range s {
         if i =='('||i == '['|| i== '{'{
@@ -123,9 +137,25 @@ func isValid(s string) bool {
     return len(left)==0
 }
 
+func main() {
+    testStr1:=""
+    testStr2:=""
+    testStr3:=""
+    ...
+    
+    fmt.Println("method1_test:",isValid1(testStr1)
+    fmt.Println("method1_test:",isValid1(testStr2)
+    fmt.Println("method1_test:",isValid1(testStr3)
+
+    fmt.Println("method2_test:",isValid2(testStr1)
+    fmt.Println("method2_test:",isValid2(testStr2)
+    fmt.Println("method2_test:",isValid2(testStr3)
+                
+}
+
 // 4.最长公共前缀
 // 方法1：for循环纵向比较
-func longestCommonPrefix(strs []string) string {
+func longestCommonPrefix1(strs []string) string {
     if len(strs) == 0{
         return ""
     }
@@ -141,7 +171,7 @@ func longestCommonPrefix(strs []string) string {
 }
 
 // 方法2：for循环横向比较
-func longestCommonPrefix(strs []string) string {
+func longestCommonPrefix2(strs []string) string {
     if len(strs) == 0{
         return ""
     }
@@ -161,6 +191,14 @@ func longestCommonPrefix(strs []string) string {
     return pre
 }
 
+func main() {
+    strs:=[]string{
+    fmt.Println("method1_test:",longestCommonPrefix1(strs))
+    fmt.Println("method2_test:",longestCommonPrefix2(strs))
+        
+    }
+}
+
 // 5.加一
 func plusOne(digits []int) []int {
     for i :=len(digits)-1;i>=0;i-- {
@@ -173,9 +211,14 @@ func plusOne(digits []int) []int {
     return append([]int{1},digits...)
 }
 
+func main() {
+    nums := []int {}
+    fmt.Println(plusOne(nums))
+}
+
 //6.删除有序数组中的重复项
 // 方法1：嵌套循环查找
-func removeDuplicates(nums []int) int {
+func removeDuplicates1(nums []int) int {
     n:=len(nums)
     if len(nums) == 0 {
         return 0
@@ -197,7 +240,7 @@ func removeDuplicates(nums []int) int {
 }
 
 // 方法2：
-func removeDuplicates(nums []int) int {
+func removeDuplicates2(nums []int) int {
     if len(nums) == 0 {
         return 0
     }
@@ -211,9 +254,19 @@ func removeDuplicates(nums []int) int {
     return i+1
 }
 
+func main() {
+    nums :=[]int{}
+    n1 :=removeDuplicates1(nums)
+    fmt.Println("method1_test:",n1,nums[:n1])
+    n2 :=removeDuplicates2(nums)
+    fmt.Println("method2_test:",n2,nums[:n2])
+
+    
+}
+
 //7.合并区间
 // 方法1：单循环比较 边遍历边合并
-func merge(intervals [][]int) [][]int {
+func merge1(intervals [][]int) [][]int {
     if len(intervals) ==0 {
         return intervals
     }
@@ -238,7 +291,7 @@ func merge(intervals [][]int) [][]int {
 }
 
 // 方法2：双循环比较
-func merge(intervals [][]int) [][]int {
+func merge2(intervals [][]int) [][]int {
     if len(intervals) ==0 {
         return intervals
     }
@@ -266,9 +319,16 @@ func merge(intervals [][]int) [][]int {
     return result
 }
 
+func main() {
+    intervals :=[][]int{}
+    fmt.Println("method1_test:",merge1(intervals))
+    fmt.Println("method2_test:",merge2(intervals))
+    
+}
+
 // 8.两数之和
 //方法1：嵌套循环
-func twoSum(nums []int, target int) []int {
+func twoSum1(nums []int, target int) []int {
     for i:=0;i<len(nums);i++ {
         for j := i+1;j<len(nums);j++ {
             if nums[i] + nums [j] ==target{
@@ -279,7 +339,7 @@ func twoSum(nums []int, target int) []int {
     return []int{}
 }
 //方法2：map
-func twoSum(nums []int, target int) []int {
+func twoSum2(nums []int, target int) []int {
     numMap:=make(map[int]int)
 
     for i,num :=range nums {
@@ -289,6 +349,13 @@ func twoSum(nums []int, target int) []int {
         }
         numMap[num] = i
     }
-    return nil
+    return []int{}
 }
 
+func main() {
+    nums:=[]int{}
+    target :=
+    fmt.Println("method1_test:",twoSum1(nums,target))
+    fmt.Println("method2_test:",twoSum2(nums,target))
+    
+}
