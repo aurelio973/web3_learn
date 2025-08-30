@@ -184,3 +184,29 @@ func main() {
 
 
 // 2.实现一个带有缓冲的通道，生产者协程向通道中发送100个整数，消费者协程从通道中接收这些整数并打印
+func main() {
+	ch := make(chan int, 5)
+	go func() {
+		for i := 1; i <= 100; i++ {
+			ch <- i
+		}
+		close(ch)
+	}()
+
+	go func() {
+		for {
+			select {
+			case num, ok := <-ch:
+				if !ok {
+					return
+				}
+				fmt.Printf("%d ", num)
+			}
+		}
+	}()
+	time.Sleep(500 * time.Millisecond)
+	fmt.Println("\n数据处理完成")
+}
+
+// 锁机制
+// 1.编写一个程序，使用 sync.Mutex 来保护一个共享的计数器。启动10个协程，每个协程对计数器进行1000次递增操作，最后输出计数器的值
