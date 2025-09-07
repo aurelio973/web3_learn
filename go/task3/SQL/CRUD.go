@@ -16,7 +16,7 @@ type Student struct {
 
 func main() {
 	// 初始化数据库连接
-	dsn := "root:bjw061211@tcp(127.0.0.1:3306)/school?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:123123@tcp(127.0.0.1:3306)/school?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("数据库连接失败: " + err.Error())
