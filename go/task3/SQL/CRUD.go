@@ -1,3 +1,4 @@
+// 题目1：基本CRUD操作
 package main
 
 import (
@@ -5,7 +6,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// 题目1：基本CRUD操作
 // 创建学生模型
 type Student struct {
 	ID    uint   `gorm:"primaryKey"`
