@@ -16,7 +16,7 @@ type Book struct {
 
 func main() {
 	// 连接数据库
-	dsn := "root:bjw061211@tcp(127.0.0.1:3306)/bookstore?charset=utf8mb4&parseTime=True"
+	dsn := "root:123123@tcp(127.0.0.1:3306)/bookstore?charset=utf8mb4&parseTime=True"
 
 	// 连接数据库
 	db, err := sqlx.Connect("mysql", dsn)
