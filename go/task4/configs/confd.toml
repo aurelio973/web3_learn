@@ -4,4 +4,4 @@ nodes = [
 ]
 confdir = "./confd"
 log-level = "info"
-interval =60s
+interval =60
