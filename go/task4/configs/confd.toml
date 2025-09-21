@@ -1,1 +1,7 @@
-
+backend = "etcd"
+nodes = [
+    "http://127.0.0.1:2379"
+]
+confdir = "./confd"
+log-level = "info"
+interval =60sssss
