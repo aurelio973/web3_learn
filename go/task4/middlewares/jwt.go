@@ -19,7 +19,7 @@ func JWTAuth(rdb *redis.Client) gin.HandlerFunc {
 		ctx := context.Background()
 
 		// strings.TrimPrefix 移除字符串前缀
-		tokenString := strings.TrimPrefix(c.GetHeader("Authorization"),"Bearer")
+		tokenString := strings.TrimPrefix(c.GetHeader("Authorization"),"Bearer ")
 		if tokenString == "" {
 			c.AbortWithStatusJSON(http.StatusForbidden,gin.H{"error":"invalid token"})
 			return
