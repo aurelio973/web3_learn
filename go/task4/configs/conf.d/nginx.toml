@@ -1,1 +1,14 @@
-
+[ template ]
+src = "nginx.tmpl"   # 模板文件名
+dest = "/etc/nginx/nginx.conf"   # 渲染后生成的Nginx配置文件路径
+keys = [
+    "/nigix/port",
+    "/nginx/server_name",
+    "/nginx/root",
+    "/nginx/locations/0/path",
+    "/nginx/lications/0/proxy_pass",
+    "/nginx/locations/1/path",
+    "/nginx/locations/1/proxy_pass"
+]
+check_cmd = "/usr/sbin/nginx -t"  # 检查 Nginx 配置是否正确
+reload_cmd = "/usr/sbin/nginx -s reload"  # 重载 Nginx 服务
