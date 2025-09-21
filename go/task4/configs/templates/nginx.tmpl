@@ -1,1 +1,9 @@
-
+server {
+    listen {{ getv "/nginx/port" }};
+    server_name {{ getv "/nginx/server_name" }};
+    root {{ getv "/nginx/root" }}
+    {{ range $i,%loc := gets "/nginx/locations/*/path" }}
+    location {{ getv (printf "/nginx/locations/%d/path" $i) }} {
+        proxy_pass {{ getv (printf "/nginx/locations/%d/proxy_pass" $i) }}
+    }
+}
