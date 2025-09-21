@@ -1,1 +1,49 @@
+package services
 
+import (
+	"fmt"
+	"blog/models"
+	Req "blog/repository"
+
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
+)
+
+// 创建评论
+func CreateCommentService(ctx *gin.Context, db *gorm.DB, comment models.Comment) error {
+	c := Req.CommentRep{Db: db}
+	u := Req.UserRep{Db: db}
+	//判断当前评论用户是否认证
+	userId, ok := ctx.Get("userId")
+	if !ok {
+		return fmt.Errorf("当前用户未认证")
+	}
+	//查询UserId是否存在
+	queryUserErr := u.SelectUserById(userId.(uint64))
+	if queryUserErr != nil {
+		return queryUserErr
+	}
+	err := c.CreateComment(&models.Comment{UserID: userId.(uint64), PostID: comment.PostID, Content: comment.Content})
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// 查询当前文章下的所有评论
+func QueryCommentByPostIdService(db *gorm.DB, comment models.Comment) (commentResult []models.Comment, err error) {
+	c := Req.CommentRep{Db: db}
+	p := Req.PostRep{Db: db}
+	var comments []models.Comment
+	//判断是否存在该文章
+	//var posts models.Post
+	postErr := p.ReadPostByID(&models.Post{ID: comment.PostID})
+	if postErr != nil {
+		return []models.Comment{}, postErr
+	}
+	err = c.QueryCommentByPostId(&comment, &comments)
+	if err != nil {
+		return []models.Comment{}, err
+	}
+	return comments, nil
+}
