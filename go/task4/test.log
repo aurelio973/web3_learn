@@ -1,1 +1,160 @@
+2025-09-18T19:06:14.235+0800	DEBUG	cmd/main.go:52	START!
+2025-09-18T19:06:14.249+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-18T19:06:14.282+0800	ERROR	migrate/migrate.go:21	error	{"error": "数据库连接失败（DNS: root:bjw061211@tcp(127.0.0.1:3306)/blogdb?charset=utf8mb4&parseTime=True&loc=Local）: Error 1049 (42000): Unknown database 'blogdb'"}
+2025-09-18T19:12:36.607+0800	DEBUG	cmd/main.go:52	START!
+2025-09-18T19:12:36.619+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-18T19:12:36.647+0800	DEBUG	migrate/migrate.go:25	连接数据库成功，开始迁移
+2025-09-18T19:12:36.865+0800	DEBUG	migrate/migrate.go:33	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-18T19:12:36.867+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:18.141.190.134:6379
+2025-09-18T19:12:36.867+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<18.141.190.134:6379 db:0>
+2025-09-21T22:31:55.286+0800	DEBUG	cmd/main.go:52	START!
+2025-09-21T22:31:55.306+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-21T22:31:55.323+0800	DEBUG	migrate/migrate.go:25	连接数据库成功，开始迁移
+2025-09-21T22:31:55.391+0800	DEBUG	migrate/migrate.go:33	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-21T22:31:55.391+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:18.141.190.134:6379
+2025-09-21T22:31:55.391+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<18.141.190.134:6379 db:0>
+2025-09-21T23:08:01.818+0800	DEBUG	handler/user.go:57	开始注册用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 test1@example.com}
+2025-09-21T23:08:01.818+0800	DEBUG	repository/user_repository.go:37	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:08:01.820+0800	DEBUG	repository/user_repository.go:48	根据邮箱地址查询数据：{email 15 0 test1@example.com <nil>}
+2025-09-21T23:08:01.876+0800	DEBUG	repository/user_repository.go:17	开始将模型数据插入数据&{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W test1@example.com}
+2025-09-21T23:08:01.907+0800	DEBUG	repository/user_repository.go:20	插入数据成功
+2025-09-21T23:08:01.908+0800	DEBUG	handler/user.go:59	注册用户成功{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 test1@example.com}
+2025-09-21T23:13:29.794+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:13:29.794+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:13:29.794+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:13:29.794+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:13:29.824+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:13:29.824+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:13:29.891+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:13:42.010+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzEyMDksIk1hcENsYWltcyI6bnVsbH0.S_v0520ygPYiPT9EoVpe4vIoyYWjy5cbAcGhPDfqRlE
+2025-09-21T23:13:42.010+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:13:42.010+0800	DEBUG	services/user_service.go:136	exptime: 1758471209 second: 1h0m0s
+2025-09-21T23:21:39.260+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:21:39.260+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:21:39.260+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:21:39.260+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:21:39.262+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:21:39.262+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:21:39.317+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:21:51.433+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzE2OTksIk1hcENsYWltcyI6bnVsbH0.MAcz8vlM5R9sUKmwXY4UW3usew6IMn64tzZx0QevQts
+2025-09-21T23:21:51.433+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:21:51.433+0800	DEBUG	services/user_service.go:136	exptime: 1758471699 second: 1h0m0s
+2025-09-21T23:54:16.248+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:54:16.248+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:54:16.248+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:54:16.249+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:54:16.250+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:54:16.250+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:54:16.306+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:54:28.407+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzM2NTYsIk1hcENsYWltcyI6bnVsbH0.ZlnJA9Ih2r5S83LDcGXTZQEkq3ufEXX6IOsoEUmIIgE
+2025-09-21T23:54:28.407+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:54:28.407+0800	DEBUG	services/user_service.go:136	exptime: 1758473656 second: 1h0m0s
+2025-09-21T23:55:26.054+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-21T23:55:26.054+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-21T23:56:25.265+0800	DEBUG	cmd/main.go:52	START!
+2025-09-21T23:56:25.278+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-21T23:56:25.283+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-21T23:56:25.320+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-21T23:56:25.321+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-21T23:56:25.321+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
+2025-09-21T23:56:34.340+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:56:34.340+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:56:34.340+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:56:34.340+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:56:34.342+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:56:34.342+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:56:34.399+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:56:34.466+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzM3OTQsIk1hcENsYWltcyI6bnVsbH0.BZi0Rf-qqLzsIw9OKtoH_KeTui1Dt314u7z3CYWhrFw
+2025-09-21T23:56:34.466+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:56:34.467+0800	DEBUG	services/user_service.go:136	exptime: 1758473794 second: 1h0m0s
+2025-09-21T23:56:36.789+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:56:36.789+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:56:36.789+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:56:36.789+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:56:36.790+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:56:36.790+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:56:36.846+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:56:36.956+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzM3OTYsIk1hcENsYWltcyI6bnVsbH0.yAFrlMy4_hJd-vf6mK8by3W-yoJeLRG1h5-6GdXmzh8
+2025-09-21T23:56:36.956+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:56:36.956+0800	DEBUG	services/user_service.go:136	exptime: 1758473796 second: 1h0m0s
+2025-09-21T23:56:51.731+0800	DEBUG	handler/user.go:57	开始注册用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 test1@example.com}
+2025-09-21T23:56:51.731+0800	DEBUG	repository/user_repository.go:37	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:56:51.732+0800	DEBUG	handler/user.go:59	注册用户成功{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 test1@example.com}
+2025-09-21T23:57:17.990+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-21T23:57:17.990+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-21T23:57:17.990+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-21T23:57:17.990+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-21T23:57:17.991+0800	DEBUG	services/user_service.go:86	
+2025-09-21T23:57:17.991+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-21T23:57:18.048+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-21T23:57:18.144+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzM4MzgsIk1hcENsYWltcyI6bnVsbH0.UWIg6zgneHzBp8peR3Tih6KTER_2YXyruKcMAU2hk5E
+2025-09-21T23:57:18.144+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-21T23:57:18.144+0800	DEBUG	services/user_service.go:136	exptime: 1758473838 second: 1h0m0s
+2025-09-22T00:02:26.317+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-22T00:02:26.317+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-22T00:23:22.080+0800	DEBUG	cmd/main.go:52	START!
+2025-09-22T00:23:22.093+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-22T00:23:22.096+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-22T00:23:22.132+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-22T00:23:22.132+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-22T00:23:22.132+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
+2025-09-22T00:24:46.070+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-22T00:24:46.070+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-22T00:24:46.070+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-22T00:24:46.070+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-22T00:24:46.071+0800	DEBUG	services/user_service.go:86	
+2025-09-22T00:24:46.071+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-22T00:24:46.129+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-22T00:24:46.132+0800	DEBUG	services/user_service.go:133	成功生成用户名:test1token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVzdDEiLCJyb2xlcyI6WyJhZG1pbiJdLCJleHAiOjE3NTg0NzU0ODYsIk1hcENsYWltcyI6bnVsbH0.SSEP3-FA8KpQwIeYd6Yy0CnOEL71Tgkq9FIsGJOj04Q
+2025-09-22T00:24:46.132+0800	DEBUG	services/user_service.go:135	启动redis缓存当前登录成功的username
+2025-09-22T00:24:46.132+0800	DEBUG	services/user_service.go:136	exptime: 1758475486 second: 1h0m0s
+2025-09-22T00:24:46.132+0800	DEBUG	services/user_service.go:142	token保存redis缓存成功
+2025-09-22T00:24:46.132+0800	DEBUG	handler/user.go:95	登录用户成功{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-22T00:45:18.524+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-22T00:45:18.524+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test1234 }
+2025-09-22T00:45:18.524+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-22T00:45:18.524+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-22T00:45:18.526+0800	DEBUG	services/user_service.go:86	
+2025-09-22T00:45:18.526+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-22T00:45:18.584+0800	DEBUG	handler/user.go:95	登录用户成功{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test1234 }
+2025-09-22T00:45:50.863+0800	DEBUG	handler/user.go:91	执行用户登录业务逻辑
+2025-09-22T00:45:50.863+0800	DEBUG	handler/user.go:93	开始登录用户{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-22T00:45:50.863+0800	DEBUG	services/user_service.go:83	检查用户登录的用户名和密码是否存在数据库中
+2025-09-22T00:45:50.863+0800	DEBUG	repository/user_repository.go:59	根据用户名查询数据,查询用户名：{username 15 0 test1 <nil>}
+2025-09-22T00:45:50.864+0800	DEBUG	services/user_service.go:86	
+2025-09-22T00:45:50.864+0800	DEBUG	services/user_service.go:88	查询成功：{1 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 $2a$10$TrUdej5DIiC2bOr/Ujwn3Odr1xQcZZBPjPktZBYTfYLGSPf/iWO/W }
+2025-09-22T00:45:50.921+0800	DEBUG	services/user_service.go:106	用户名和密码校验通过！开始生成token
+2025-09-22T00:45:50.921+0800	DEBUG	handler/user.go:95	登录用户成功{0 {0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} test1 Test123456 }
+2025-09-22T00:59:56.921+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-22T00:59:56.921+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-22T01:00:42.067+0800	DEBUG	cmd/main.go:52	START!
+2025-09-22T01:00:42.089+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-22T01:00:42.093+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-22T01:00:42.125+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-22T01:00:42.125+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-22T01:00:42.125+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
+2025-09-22T01:01:46.391+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-22T01:01:46.391+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-22T01:02:04.248+0800	DEBUG	cmd/main.go:52	START!
+2025-09-22T01:02:04.260+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-22T01:02:04.263+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-22T01:02:04.299+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-22T01:02:04.299+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-22T01:02:04.299+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
+2025-09-22T01:07:08.490+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-22T01:07:08.491+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-22T01:07:25.805+0800	DEBUG	cmd/main.go:52	START!
+2025-09-22T01:07:25.817+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-22T01:07:25.820+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-22T01:07:25.861+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-22T01:07:25.861+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-22T01:07:25.861+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
+2025-09-22T01:19:22.797+0800	DEBUG	cmd/main.go:119	收到退出信号{signal 15 0 terminated <nil>}
+2025-09-22T01:19:22.797+0800	DEBUG	cmd/main.go:128	资源已经释放完成
+2025-09-22T01:19:36.731+0800	DEBUG	cmd/main.go:52	START!
+2025-09-22T01:19:36.745+0800	DEBUG	migrate/migrate.go:16	初始化日志模块成功
+2025-09-22T01:19:36.748+0800	DEBUG	migrate/migrate.go:26	连接数据库成功，开始迁移
+2025-09-22T01:19:36.782+0800	DEBUG	migrate/migrate.go:34	数据迁移成功，迁移表结构：	{"tables": "User,Post,Comment"}
+2025-09-22T01:19:36.782+0800	DEBUG	myredis/myredis.go:16	Redis DB:0Redis Addr:127.0.0.1:6379
+2025-09-22T01:19:36.782+0800	DEBUG	myredis/myredis.go:22	Redis server:Redis<127.0.0.1:6379 db:0>
 
