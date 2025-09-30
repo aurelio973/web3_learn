@@ -31,5 +31,5 @@ contract MergeSortedArray {
         }
         return result;
 
-     }
+    }
 }
