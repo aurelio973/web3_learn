@@ -16,6 +16,7 @@ contract SimpleERC20 {
     mapping (address=>mapping(address=>uint256)) public allowance;
 
     // event
+    // indexd作用：事件日志的“检索索引”
     event Transfer(address indexed from,address indexed to,uint256 value);
     event Approval(address indexed owner,address indexed spender,uint256 value);
     event Mint(address indexed to,uint256 value);
@@ -24,7 +25,7 @@ contract SimpleERC20 {
     modifier onlyOwner() {
         require(msg.sender == owner,"Only owner can call this function");
         _;
-    }
+    }  // 遇到_先执行它之前的修饰器函数（做判断） 然后跳到被修饰的函数执行 再跳到_  _之后没有函数则流程结束，否则执行_之后的函数
 
     constructor(
         string memory _name,
@@ -35,15 +36,19 @@ contract SimpleERC20 {
         name = _name;
         symbol = _symbol;
         decimals = _decimals;
+        // 例如：如果_initialSupply=1000, decimals=18，则totalSupply=1000 * 10¹⁸
         totalSupply = _initialSupply * 10 ** uint256(_decimals);
+        // 将合约部署者设置为所有者       
         owner = msg.sender;
-        
+        // 将全部初始代币分配给部署者
         balanceOf[msg.sender] = totalSupply;
+        // emit触发事件 零地址表示代币从无到有铸造
         emit Transfer(address(0),msg.sender,totalSupply);
     }
 
     // 转账功能
     function transfer(address _to, uint256 _value) public returns(bool) {
+        // 零地址是销毁地址，转账到那里代币会永久丢失
         require(_to != address(0),"Invalid address");
         require(balanceOf[msg.sender]>= _value,"Insufficiant balance");
 
@@ -55,9 +60,10 @@ contract SimpleERC20 {
     }
 
     // 授权功能
-    function approve(address _spender,uint256 _value) public returns(bool) {
-        allowance[msg.sender][_spender]=_value;
-        emit Approval(msg.sender,_spender,_value);
+    function approve(address _sender,uint256 _value) public returns(bool) {
+        // 二维映射
+        allowance[msg.sender][_sender]=_value;
+        emit Approval(msg.sender,_sender,_value);
         return true;
     }
 
@@ -89,7 +95,7 @@ contract SimpleERC20 {
         totalSupply += mintAmount;
         balanceOf[_to] += mintAmount;
 
-        emit Transfer(address(0), _to,  mintAmount);
+        emit Transfer(address(0), _to, mintAmount);
         emit Mint(_to,mintAmount);
     }
 
