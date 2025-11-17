@@ -1,0 +1,30 @@
+{
+  "name": "我的第一个 NFT",
+  "description": "这是一个在 Sepolia 测试网上发行的演示 NFT，展示了完整的发行流程。",
+  "image": "ipfs://bafybeibgsznxot4jmyt2aubxr63n5drfa4gc5tbijiicgkudrauikyxsym",
+  "attributes": [
+    {
+      "trait_type": "创作者",
+      "value": "Aurelio"
+    },
+    {
+      "trait_type": "稀有度",
+      "value": "普通"
+    },
+    {
+      "trait_type": "发行日期",
+      "value": "2025"
+    },
+    {
+      "display_type": "date",
+      "trait_type": "生日",
+      "value": 20251001
+    },
+    {
+      "display_type": "number",
+      "trait_type": "版本",
+      "value": 1
+    }
+  ],
+  "background_color": "000000"
+}
